@@ -1,4 +1,3 @@
-
 package com.alpine.holyworldai.mixin;
 
 import com.alpine.holyworldai.HolyWorldAIClient;
@@ -13,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class ChatHudMixin {
 
     @Inject(method = "addMessage(Lnet/minecraft/text/Text;)V", at = @At("TAIL"))
-    private void onAddMessage(Text message, CallbackInfo ci) {
+    private void holyworldai_onMessage(Text message, CallbackInfo ci) {
 
         if (HolyWorldAIClient.monitor != null) {
             HolyWorldAIClient.monitor.onChatMessage(message.getString());
